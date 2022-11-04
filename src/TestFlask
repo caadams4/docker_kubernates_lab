@@ -1,4 +1,6 @@
 from flask import Flask
+import logging
+import os
 
 app = Flask(__name__)
 
@@ -12,4 +14,9 @@ def getUserInfo():
 def index():
     return 'this is a Flask'
 
+logging.basicConfig(level=os.environ.get("LOGLEVEL","INFO"))
+log = logging.getLogger(__file__) # set log name entry
+log.info("Starting web server")
+
 app.run('0.0.0.0',8888,debug=True)
+
