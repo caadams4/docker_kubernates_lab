@@ -6,13 +6,15 @@ app = Flask(__name__)
 
 @app.route('/')
 
+
+def index():
+    return 'this is a Flask'
+
+
 @app.route('/setUserInfo/')
 
 def getUserInfo():
     return 'this is getUserInfo'
-
-def index():
-    return 'this is a Flask'
 
 logging.basicConfig(level=os.environ.get("LOGLEVEL","INFO"))
 log = logging.getLogger(__file__) # set log name entry
